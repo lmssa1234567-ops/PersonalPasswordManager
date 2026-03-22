@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+<head>
+  <title>Password Manager</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="header" role="banner">
+    <div class="app-title">
+      <span class="app-icon">🔐</span>
+      <h1>Personal Password Manager</h1>
+    </div>
+    <div class="menu-wrapper hidden" id="menuWrapper">
+      <button id="menuToggle" class="menu-toggle">☰ Menu</button>
+      <div id="menuPanel" class="menu-panel">
+        <button id="menuThemeToggle" class="menu-item">Theme: <span id="menuThemeLabel">Dark</span></button>
+        <button id="menuImport" class="menu-item">Import</button>
+        <button id="menuExport" class="menu-item">Export</button>
+        <button id="menuLogout" class="menu-item">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="loginSection" class="card">
+    <h2>Master Login</h2>
+    <input id="pass" type="password" placeholder="Master Passphrase">
+    <button id="createUserBtn">Create User</button>
+  </div>
+
+  <script type="module" src="./events.js"></script>
+
+  <div id="detailSection" style="display:none;" class="card">
+    <div class="detail-header">
+      <h2>Credentials</h2>
+      <div class="action-row">
+        <button id="manageCredentialsBtn">Add Credential</button>
+        <button id="manageUsersBtn">Manage Users</button>
+        <button id="manageCategoriesBtn">Manage Categories</button>
+        <button id="manageAccountsBtn">Manage Accounts</button>
+      </div>
+    </div>
+    <div class="credentials-filters">
+      <label>
+        User
+        <select id="credentialsFilterUser">
+          <option value="">Select user</option>
+        </select>
+      </label>
+      <label>
+        Category
+        <select id="credentialsFilterCategory">
+          <option value="">Select category</option>
+        </select>
+      </label>
+      <label>
+        Account
+        <select id="credentialsFilterAccount" disabled>
+          <option value="">Select account</option>
+        </select>
+      </label>
+    </div>
+    <p id="credentialsFilterMessage" class="empty-state">
+      Select a user or category to view credentials.
+    </p>
+    <div class="credentials-table-wrapper">
+      <table id="credentialsTable">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>User</th>
+            <th>Account</th>
+            <th>Category</th>
+            <th>Note</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>
