@@ -517,12 +517,12 @@ async function renderCredentials() {
     const row = document.createElement("tr");
 
     row.innerHTML = `
-      <td>${credential.username}</td>
-      <td>${credential.userName}</td>
-      <td>${credential.accountName}</td>
-      <td>${credential.categoryName}</td>
-      <td>${credential.note || ""}</td>
-      <td class="credential-actions">
+      <td data-label="Username">${credential.username || ""}</td>
+      <td data-label="User">${credential.userName || ""}</td>
+      <td data-label="Account">${credential.accountName || ""}</td>
+      <td data-label="Category">${credential.categoryName || ""}</td>
+      <td data-label="Note">${credential.note || ""}</td>
+      <td data-label="Actions" class="credential-actions">
         <button type="button" class="edit-credential">Edit</button>
         <button type="button" class="copy-password">Copy</button>
         <button type="button" class="delete-credential">Delete</button>
